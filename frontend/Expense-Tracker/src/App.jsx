@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   BrowserRouter as Router,
@@ -14,6 +14,8 @@ import Income from "./pages/Dashboard/Income";
 import Expense from "./pages/Dashboard/Expense";
 import UserProvider from "./context/UserContext";
 import { Toaster } from "react-hot-toast";
+import ProfilePage from "./pages/Dashboard/ProfilePage";
+import EditProfile from "./components/ProfilePage/EditProfile";
 
 const App = () => {
   return (
@@ -27,6 +29,8 @@ const App = () => {
             <Route path="/dashboard" exact element={<Home />} />
             <Route path="/income" exact element={<Income />} />
             <Route path="/expense" exact element={<Expense />} />
+            <Route path="/profile" exact element={<ProfilePage />} />
+            <Route path="/editProfile" element={<EditProfile />} />
           </Routes>
         </Router>
       </div>

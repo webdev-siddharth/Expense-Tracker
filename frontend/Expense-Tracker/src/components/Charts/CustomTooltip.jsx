@@ -3,14 +3,17 @@ import React from "react";
 const CustomTooltip = ({active, payload}) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white shadow-md rounded-lg p-2 border border-gray-300">
-        <p className="text-xs font-semibold text-purple-800 mb-1">
+      <div className="bg-white dark:bg-[#1f1f21]
+        text-gray-900 dark:text-gray-100
+        shadow-lg rounded-lg p-2
+        border border-gray-300 dark:border-gray-700">
+        <p className="text-xs font-semibold text-purple-800 dark:text-purple-300 mb-1">
           {payload[0].name}
         </p>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-700 dark:text-gray-300">
           Amount:{" "}
-          <span className="text-sm font-medium text-gray-900">
-            ${payload[0].value}
+          <span className="text-sm font-medium text-gray-900 dark:text-white">
+            ₹{payload[0].value}
           </span>
         </p>
       </div>

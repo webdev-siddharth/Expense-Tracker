@@ -23,23 +23,29 @@ const SideMenu = ({ activeMenu }) => {
     navigate("/login");
   };
 
-  return <div className="w-64 h-[calc(100vh-61px)] bg-white border-r border-gray-200/50 p-5 sticky top-[61px] z-20">
-      <div className="flex flex-col items-center justify-center gap-3 mt-3 mb-7">
+  return <div className="w-64 h-[calc(100vh-61px)]
+                  bg-white dark:bg-[#111] 
+                  border-r border-gray-200/50 dark:border-gray-700/50
+                  p-5 sticky top-[61px] z-20">
+      <div className="flex flex-col items-center justify-center gap-3 mt-3 mb-7" 
+>
         {user?.profileImageUrl ? (
           <img
             src={user?.profileImageUrl || ""}
             alt="Profile Image"
-            className="w-20 h-20 bg-slate-400 rounded-full"
+            className="w-20 h-20 bg-slate-400 rounded-full cursor-pointer"
+            onClick={() => navigate("/profile")}
           />) : (
             <CharAvatar 
             fullName = {user?.fullName}
             width = "w-20"
             height = "h-20"
             style = "text-xl"
+            onClick={() => navigate("/profile")}
             />
           )}
 
-        <h5 className="text-gray-950 font-medium leading-6">
+        <h5 className="text-gray-950 dark:text-white font-medium leading-6 cursor-pointer" onClick={() => navigate("/profile")}>
             {user?.fullName || ""}
             </h5>
       </div>
@@ -52,7 +58,7 @@ const SideMenu = ({ activeMenu }) => {
       ${
         activeMenu === item.label
           ? "bg-primary text-white"
-          : "text-black hover:bg-purple-600/15 hover:text-purple-600"
+          : "text-black dark:text-gray-200 hover:bg-purple-600/15 hover:text-purple-600 dark:hover:bg-purple-900/30 dark:hover:text-purple-300"
       }
     `}
     onClick={() => handleClick(item.path)}

@@ -30,7 +30,6 @@ const SignUp = () => {
     if (!fullName) {
       setError("Please Enter your Name");
       return;
-
     }
 
     if (!validateEmail(email)) {
@@ -44,16 +43,15 @@ const SignUp = () => {
     }
 
     if (password.length < 8) {
-    setError("Password must be at least 8 characters long.");
-    return;
-  }
+      setError("Password must be at least 8 characters long.");
+      return;
+    }
 
     setError("");
 
-    // SignUp API Call 
+    // SignUp API Call
     try {
-
-      // Upload Image if present 
+      // Upload Image if present
       if (profilePic) {
         const imgUploadRes = await uploadImage(profilePic);
         profileImageUrl = imgUploadRes.imageUrl || "";
@@ -63,7 +61,7 @@ const SignUp = () => {
         fullName,
         email,
         password,
-        profileImageUrl
+        profileImageUrl,
       });
 
       const { token, user } = response.data;
@@ -85,21 +83,22 @@ const SignUp = () => {
   return (
     <AuthLayout>
       <div className="lg:w-[100%] h-auto md:h-full mt-10 md:mt-0 flex flex-col justify-center">
-        <h3 className="text-xl font-semibold text-black">Create an Account</h3>
-        <p className="text-xs text-slate-700 mt-[5px] mb-6">
+        <h3 className="text-xl font-semibold text-black dark:text-white">
+          Create an Account
+        </h3>
+        <p className="text-xs text-slate-700 mt-[5px] mb-6 dark:text-slate-300">
           Join Us Today by Entering You Details Below.
         </p>
 
         <form onSubmit={handleSignUp}>
-
-          <ProfilePhotoSelector image={ profilePic} setImage = {setProfilePic} />
+          <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input
               value={fullName}
               onChange={({ target }) => setFullName(target.value)}
               label="Full Name"
-              placeholder="John Chamar"
+              placeholder="John Singh"
               type="text"
             />
 
@@ -123,18 +122,17 @@ const SignUp = () => {
           </div>
 
           {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
-          
-                    <button type="submit" className="btn-primary">
-                      SIGN UP
-                    </button>
-          
-                    <p className="text-[13px] text-slate-800 mt-3">
-                      Already have an Account?{" "}
-                      <Link className="font-medium text-primary underline" to = "/login">
-                      Login
-                      </Link>
-                    </p>
 
+          <button type="submit" className="btn-primary">
+            SIGN UP
+          </button>
+
+          <p className="text-[13px] text-slate-800 mt-3 dark:text-slate-300">
+            Already have an Account?{" "}
+            <Link className="font-medium text-primary underline" to="/login">
+              Login
+            </Link>
+          </p>
         </form>
       </div>
     </AuthLayout>

@@ -6,10 +6,10 @@ const CustomLegend = ({payload}) => {
         {payload.map((entry, index) => (
             <div key={`legend-${index}`} className="flex items-center space-x-2">
                 <div
-                    className="w-2.5 h-2.5 rounded-full"
+                    className="w-2.5 h-2.5 rounded-full border border-white/20 dark:border-black/20"
                     style={{ backgroundColor: entry.color }}
                 ></div>
-                <span className="text-xs text-gray-700 font-medium">
+                <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
                     {entry.value}
                 </span>
             </div>

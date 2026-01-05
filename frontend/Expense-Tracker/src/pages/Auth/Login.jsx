@@ -8,12 +8,11 @@ import { API_PATHS } from "../../utils/apiPaths";
 import { UserContext } from "../../context/UserContext";
 
 const Login = () => {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const {updateUser } = useContext(UserContext);
+  const { updateUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -31,7 +30,7 @@ const Login = () => {
       return;
     }
 
-    setError("")
+    setError("");
 
     // Login API Call
     try {
@@ -46,7 +45,7 @@ const Login = () => {
         updateUser(user);
         navigate("/dashboard");
       }
-    } catch(error) {
+    } catch (error) {
       if (error.response && error.response.data.message) {
         setError(error.response.data.message);
       } else {
@@ -58,27 +57,27 @@ const Login = () => {
   return (
     <AuthLayout>
       <div className="lg:w-[70%] h-3/4 mdd:h-full flex flex-col justify-center">
-        <h3 className="text-xl font-semibold text-black">Welcome Back</h3>
-        <p className="text-xs text-slate-700 mt-[5px] mb-6">
+        <h3 className="text-xl font-semibold text-black dark:text-white">
+          Welcome Back
+        </h3>
+        <p className="text-xs text-slate-700 mt-[5px] mb-6 dark:text-slate-300">
           Please Enter you Details Here to Log in
         </p>
 
         <form onSubmit={handleLogin}>
           <Input
-            value = {email} 
-            onChange = {({ target }) => setEmail(target.value)} 
-            label = "Email Address" 
-            placeholder="john@example.com" 
+            value={email}
+            onChange={({ target }) => setEmail(target.value)}
+            label="Email Address"
+            placeholder="john@example.com"
             type="email"
-          
           />
           <Input
-            value = {password} 
-            onChange = {({ target }) => setPassword(target.value)} 
-            label = "Password" 
-            placeholder="**Min 8 Characters**" 
+            value={password}
+            onChange={({ target }) => setPassword(target.value)}
+            label="Password"
+            placeholder="**Min 8 Characters**"
             type="password"
-          
           />
 
           {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
@@ -87,17 +86,16 @@ const Login = () => {
             LOGIN
           </button>
 
-          <p className="text-[13px] text-slate-800 mt-3">
+          <p className="text-[13px] text-slate-800 mt-3 dark:text-slate-300">
             Don't have an Account?{" "}
-            <Link className="font-medium text-primary underline" to = "/signup">
-            SignUp
+            <Link className="font-medium text-primary underline" to="/signup">
+              SignUp
             </Link>
           </p>
-
         </form>
       </div>
     </AuthLayout>
-  )
+  );
 };
 
 export default Login;

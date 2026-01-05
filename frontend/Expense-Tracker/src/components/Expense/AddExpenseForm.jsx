@@ -12,7 +12,7 @@ const AddExpenseForm = ({ onAddExpense }) => {
 
   const handleChange = (key, value) => setExpense({ ...expense, [key]: value });
   return (
-    <div>
+    <div className="text-gray-800 dark:text-gray-200">
       <EmojiPickerPopup
         icon={expense.icon}
         onSelect={(selectedIcon) => handleChange("icon", selectedIcon)}

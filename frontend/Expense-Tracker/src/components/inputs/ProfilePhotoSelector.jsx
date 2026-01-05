@@ -38,12 +38,19 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
       />
 
       {!image ? (
-        <div className="w-20 h-20 flex items-center justify-center bg-purple-100 rounded-full relative">
-          <LuUser className="text-4xl text-primary" />
+        <div className="w-20 h-20 flex items-center justify-center 
+            bg-purple-100 dark:bg-purple-900/30 
+            rounded-full relative">
+          <LuUser className="text-4xl text-primary dark:text-purple-300" />
 
           <button
             type="button"
-            className="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full absolute -bottom-1 -right-1"
+            className="w-8 h-8 flex items-center justify-center 
+              bg-primary dark:bg-purple-700 
+              text-white rounded-full 
+              absolute -bottom-1 -right-1 
+              shadow-md dark:shadow-none
+              hover:bg-purple-600 dark:hover:bg-purple-600"
             onClick={onchoosefile}
           >
             <LuUpload />
@@ -54,11 +61,16 @@ const ProfilePhotoSelector = ({ image, setImage }) => {
           <img
             src={previewUrl}
             alt="profile pic"
-            className="w-20 h-20 rounded-full object-cover"
+            className="w-20 h-20 rounded-full object-cover ring-2 ring-gray-200 dark:ring-gray-700"
           />
           <button
             type="button"
-            className="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full absolute -bottom-1 -right-1"
+            className="w-8 h-8 flex items-center justify-center 
+              bg-red-500 dark:bg-red-600 
+              text-white rounded-full 
+              absolute -bottom-1 -right-1
+              shadow-md dark:shadow-none
+              hover:bg-red-600 dark:hover:bg-red-500"
             onClick={handleRemoveImage}
           >
             <LuTrash />

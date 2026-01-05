@@ -13,7 +13,7 @@ const AddIncomeForm = ({ onAddIncome }) => {
   const handleChange = (key, value) => setIncome({ ...income, [key]: value });
 
   return (
-    <div>
+    <div className="text-gray-800 dark:text-gray-200">
       <EmojiPickerPopup
         icon={income.icon}
         onSelect={(selectedIcon) => handleChange("icon", selectedIcon)}

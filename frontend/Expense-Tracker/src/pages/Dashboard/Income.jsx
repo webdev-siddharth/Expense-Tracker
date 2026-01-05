@@ -11,7 +11,7 @@ import DeleteAlert from "../../components/DeleteAlert";
 import { useUserAuth } from "../../hooks/useUserAuth";
 
 const Income = () => {
-useUserAuth();
+  useUserAuth();
 
   const [incomeData, setIncomeData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -94,7 +94,7 @@ useUserAuth();
       console.error(
         "Error delete income:",
         error.response?.data?.message || error.message
-      )
+      );
     }
   };
 
@@ -129,7 +129,6 @@ useUserAuth();
     return () => {};
   }, []);
 
-  
   return (
     <DashboardLayout activeMenu="Income">
       <div className="my-5 mx-auto">
@@ -160,20 +159,16 @@ useUserAuth();
 
         <Modal
           isOpen={openDeleteAlert.show}
-          onClose={() => setOpenDeleteAlert ({ show: false, data: null })}
+          onClose={() => setOpenDeleteAlert({ show: false, data: null })}
           title="Delete Income"
-          >
-            <DeleteAlert 
-              content="Are you sure to delete this income?"
-              onDelete={() => deleteIncome(openDeleteAlert.data)}
-            />
-          </Modal>
-
-
+        >
+          <DeleteAlert
+            content="Are you sure to delete this income?"
+            onDelete={() => deleteIncome(openDeleteAlert.data)}
+          />
+        </Modal>
       </div>
     </DashboardLayout>
-
-    
   );
 };
 
