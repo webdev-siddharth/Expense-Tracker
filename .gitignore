@@ -1,0 +1,45 @@
+# =========================
+# ENV FILES
+# =========================
+.env
+backend/.env
+frontend/Expense-Tracker/.env
+
+# =========================
+# NODE MODULES
+# =========================
+node_modules/
+backend/node_modules/
+frontend/Expense-Tracker/node_modules/
+
+# =========================
+# BUILD FILES
+# =========================
+dist/
+build/
+frontend/Expense-Tracker/dist/
+
+# =========================
+# BACKEND UPLOADS
+# =========================
+backend/uploads/
+
+# =========================
+# DATA FILES
+# =========================
+backend/*.xlsx
+*.csv
+
+# =========================
+# LOGS
+# =========================
+logs/
+*.log
+npm-debug.log*
+
+# =========================
+# OS / EDITOR FILES
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
