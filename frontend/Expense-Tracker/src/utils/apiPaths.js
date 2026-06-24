@@ -1,11 +1,16 @@
 // For network and localhost both 
-const isLocalhost =
-  window.location.hostname === "localhost" ||
-  window.location.hostname === "127.0.0.1";
+// const isLocalhost =
+//   window.location.hostname === "localhost" ||
+//   window.location.hostname === "127.0.0.1";
 
-export const BASE_URL = isLocalhost
-  ? "http://localhost:8000"
-  : "http://192.168.29.37:8000";
+// export const BASE_URL = isLocalhost
+//   ? "http://localhost:8000"
+//   : "http://192.168.29.37:8000";
+
+
+export const BASE_URL = import.meta.env.VITE_API_URL;
+
+
 
 // Utils/apiPaths.js
 export const API_PATHS = {
